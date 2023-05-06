@@ -11,7 +11,7 @@ import java.util.Date;
 public class _13FManagersPieChartMain extends Application {
     @Override
     public void start(Stage stage) throws Exception {
-        Parent root = FXMLLoader.load(getClass().getResource("/Users/emranamin/CST3613/financial-gui-client/src/main/resources/fxml/_13fManagerPieChartView.fxml"));
+        Parent root = FXMLLoader.load(getClass().getResource("/fxml/_13fManagerPieChartView.fxml"));
 
         Scene scene = new Scene(root);
         stage.setTitle("13F Managers, by Mohammed Amin" + new Date());

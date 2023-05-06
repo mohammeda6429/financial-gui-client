@@ -9,25 +9,53 @@
 <?import javafx.scene.control.TableView?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.control.ToggleGroup?>
+<?import javafx.scene.control.cell.PropertyValueFactory?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="618.0" prefWidth="623.0" stylesheets="@../css/format.css" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="edu.citytech.gui.service._13fmanager._13FManagersPieChartController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="737.0" prefWidth="777.0" stylesheets="@../css/format.css" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="edu.citytech.gui.service._13fmanager._13FManagersPieChartController">
    <children>
-      <PieChart layoutX="152.0" layoutY="42.0" prefHeight="397.0" prefWidth="457.0" />
-      <TableView layoutX="157.0" layoutY="454.0" prefHeight="150.0" prefWidth="457.0">
+      <PieChart fx:id="pieChart" layoutX="174.0" layoutY="51.0" prefHeight="457.0" prefWidth="577.0" />
+      <TableView fx:id="tvReport" layoutX="174.0" layoutY="529.0" prefHeight="177.0" prefWidth="577.0">
         <columns>
-          <TableColumn prefWidth="75.0" text="ID" />
-            <TableColumn prefWidth="94.0" text="Stock" />
-            <TableColumn prefWidth="85.0" text="Manager" />
-            <TableColumn prefWidth="87.0" text="Report Date" />
-            <TableColumn prefWidth="115.0" text="Shares" />
+          <TableColumn prefWidth="87.0" text="row ID">
+             <cellValueFactory>
+                <PropertyValueFactory property="id" />
+             </cellValueFactory>
+          </TableColumn>
+           <!--
+            <TableColumn prefWidth="119.33334350585938" text="Stock" >
+               <cellValueFactory>
+                  <PropertyValueFactory property="stock"/>
+               </cellValueFactory>
+            </TableColumn>
+            -->
+            <TableColumn prefWidth="327.0" text="Manager">
+               <cellValueFactory>
+                <PropertyValueFactory property="manager" />
+               </cellValueFactory>
+            </TableColumn>
+            <TableColumn prefWidth="87.0" text="Report Date">
+               <cellValueFactory>
+                  <PropertyValueFactory property="formattedReport" />
+               </cellValueFactory>
+            </TableColumn>
+            <TableColumn prefWidth="87.0" styleClass="money" text="Value">
+               <cellValueFactory>
+                  <PropertyValueFactory property="formattedValueInBillions" />
+               </cellValueFactory>
+            </TableColumn>
+           <TableColumn prefWidth="87.0" styleClass="money" text="Shares">
+              <cellValueFactory>
+                 <PropertyValueFactory property="formattedShareInBillions" />
+              </cellValueFactory>
+           </TableColumn>
         </columns>
       </TableView>
-      <Slider fx:id="slLimit" layoutX="128.0" layoutY="25.0" orientation="VERTICAL" prefHeight="578.0" prefWidth="21.0" showTickLabels="true" showTickMarks="true" value="5.0" />
-      <Label layoutX="178.0" layoutY="26.0" prefHeight="17.0" prefWidth="404.0" text="AAPL stock in total Billions: 215.69">
+      <Slider fx:id="slLimit" layoutX="140.0" layoutY="51.0" orientation="VERTICAL" prefHeight="577.0" prefWidth="37.0" showTickLabels="true" showTickMarks="true" value="5.0" />
+      <Label fx:id="lblTitle" layoutX="174.0" layoutY="10.0" prefHeight="33.0" prefWidth="577.0" text="AAPL stock in total Billions: 215.69">
          <font>
-            <Font size="22.0" />
+            <Font size="27.0" />
          </font></Label>
       <Label layoutX="14.0" layoutY="34.0" prefHeight="17.0" prefWidth="109.0" text="Ticker Symbol Search">
          <font>
@@ -39,22 +67,22 @@
             <Font size="10.0" />
          </font>
       </Label>
-      <TextField layoutX="14.0" layoutY="51.0" prefHeight="26.0" prefWidth="87.0">
+      <TextField fx:id="txtStockInput" layoutX="14.0" layoutY="51.0" prefHeight="26.0" prefWidth="87.0">
          <font>
             <Font size="10.0" />
          </font>
       </TextField>
-      <TextField layoutX="14.0" layoutY="97.0" prefHeight="26.0" prefWidth="87.0">
+      <TextField fx:id="txtLimit" layoutX="14.0" layoutY="97.0" prefHeight="26.0" prefWidth="87.0">
          <font>
             <Font size="10.0" />
          </font>
       </TextField>
-      <Button layoutX="14.0" layoutY="132.0" mnemonicParsing="false" text="Search">
+      <Button fx:id="btnSearch" layoutX="14.0" layoutY="132.0" mnemonicParsing="false" onAction="#onSearch" text="Search">
          <font>
             <Font size="10.0" />
          </font>
       </Button>
-      <RadioButton layoutX="14.0" layoutY="199.0" mnemonicParsing="false" text="Show ID">
+      <RadioButton layoutX="14.0" layoutY="199.0" mnemonicParsing="false" selected="true" text="Show ID" userData="id">
          <font>
             <Font size="10.0" />
          </font>
@@ -62,12 +90,12 @@
             <ToggleGroup fx:id="tgDisplayGroup" />
          </toggleGroup>
       </RadioButton>
-      <RadioButton layoutX="14.0" layoutY="179.0" mnemonicParsing="false" text="Show Company" toggleGroup="$tgDisplayGroup">
+      <RadioButton layoutX="14.0" layoutY="179.0" mnemonicParsing="false" text="Show Company Name" toggleGroup="$tgDisplayGroup" userData="name">
          <font>
             <Font size="10.0" />
          </font>
       </RadioButton>
-      <Label layoutX="390.0" layoutY="437.0" text="Value &amp; Shares in the Billions (By Amin)">
+      <Label layoutX="527.0" layoutY="514.0" text="Value &amp; Shares in the Billions (By Amin)">
          <font>
             <Font size="12.0" />
          </font>

@@ -1,5 +1,7 @@
 package edu.citytech.gui.service._13fmanager.model;
 
+import edu.citytech.gui.service.utility.FormatUtility;
+
 import java.util.Date;
 
 public class _13FDetails {
@@ -28,6 +30,10 @@ public class _13FDetails {
         return reportDate;
     }
 
+    public String getFormattedReport() {
+        return FormatUtility.formatDate(this.getReportDate(), "yyyy-MM");
+    }
+
     public double getValue() {
         return value;
     }
@@ -38,6 +44,20 @@ public class _13FDetails {
 
     public double getShare() {
         return share;
+    }
+
+    public String getFormattedValueInBillions() {
+        return FormatUtility.commaStyle(getValueInBillions(), 2);
+    }
+
+    public double getShareInBillions() {
+
+        return share / 1_000_000_000;
+    }
+
+    public String getFormattedShareInBillions() {
+
+        return FormatUtility.commaStyle(this.getShareInBillions(), 2);
     }
 
     @Override

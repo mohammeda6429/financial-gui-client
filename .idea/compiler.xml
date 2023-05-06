@@ -6,11 +6,12 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
-        <module name="mortgage-gui" />
+        <module name="financial-gui" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
       <module name="financial-gui-client" target="19" />
+      <module name="mortgage-gui" target="17" />
     </bytecodeTargetLevel>
   </component>
 </project>
