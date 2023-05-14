@@ -15,6 +15,7 @@
 
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="737.0" prefWidth="777.0" stylesheets="@../css/format.css" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="edu.citytech.gui.service._13fmanager._13FManagersPieChartController">
    <children>
+      <fx:include fx:id="menu" layoutX="5.0" layoutY="5.0" source="GlobalMenu.fxml" />
       <PieChart fx:id="pieChart" layoutX="174.0" layoutY="51.0" prefHeight="457.0" prefWidth="577.0" />
       <TableView fx:id="tvReport" layoutX="174.0" layoutY="529.0" prefHeight="177.0" prefWidth="577.0">
         <columns>
