@@ -7,6 +7,7 @@
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.RadioButton?>
 <?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.ToggleGroup?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
@@ -19,10 +20,13 @@
        <fx:include fx:id="menu" layoutX="5.0" layoutY="5.0" source="GlobalMenu.fxml" />
      <AnchorPane fx:id="booboo" layoutX="77.0" layoutY="286.0" prefHeight="34.0" prefWidth="550.0">
          <children>
-          <RadioButton fx:id="rbSingle" layoutX="121.0" layoutY="7.0" mnemonicParsing="false" text="(S) Single" />      
-          <RadioButton fx:id="rbMarried" layoutX="194.0" layoutY="7.0" mnemonicParsing="false" text="(M)Married" />
-          <RadioButton fx:id="rbMarriedFilingJointly" layoutX="438.0" layoutY="7.0" mnemonicParsing="false" prefHeight="17.0" prefWidth="169.0" text="(MFJ) Married Filing Jointly" />
-            <RadioButton fx:id="rbHeadOfHouseHold" layoutX="278.0" layoutY="7.0" mnemonicParsing="false" text="(HH)Head of House Hold" />
+          <RadioButton fx:id="rbSingle" layoutX="121.0" layoutY="8.0" mnemonicParsing="false" text="(S) Single">
+               <toggleGroup>
+                  <ToggleGroup fx:id="clickButtonA" />
+               </toggleGroup></RadioButton>      
+          <RadioButton fx:id="rbMarried" layoutX="194.0" layoutY="7.0" mnemonicParsing="false" text="(M)Married" toggleGroup="$clickButtonA" />
+          <RadioButton fx:id="rbMarriedFilingJointly" layoutX="438.0" layoutY="7.0" mnemonicParsing="false" prefHeight="17.0" prefWidth="169.0" text="(MFJ) Married Filing Jointly" toggleGroup="$clickButtonA" />
+            <RadioButton fx:id="rbHeadOfHouseHold" layoutX="278.0" layoutY="7.0" mnemonicParsing="false" text="(HH)Head of House Hold" toggleGroup="$clickButtonA" />
             <TextField fx:id="tfSalary" layoutY="4.0" prefHeight="25.0" prefWidth="116.0" promptText="salary" />
          </children>
       </AnchorPane>
@@ -32,12 +36,12 @@
             
             <Text layoutX="20.0" layoutY="19.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Under the current plan, if a single taxpayer earned $150,000 in taxable income, they would owe the following income taxes for 2022 (due in April 2023), as shown below:" wrappingWidth="556.451171875" />
 
-            <VBox fx:id="apTaxBrackets" layoutX="33.0" layoutY="50.0" prefHeight="135.0" prefWidth="448.0"> 
+            <VBox fx:id="apTaxBrackets" layoutX="33.0" layoutY="50.0" prefHeight="135.0" prefWidth="434.0"> 
                <Label layoutX="20.0" layoutY="63.0" prefHeight="17.0" prefWidth="291.0" text="10% Bracket: ($10,275 - $0) x 10% = $1,027.50" />
 
-               <Label layoutX="20.0" layoutY="86.0" prefHeight="17.0" prefWidth="302.0" text="12% Bracket: ($41,775 - $10,275) x 12% = $3,780.00" />
-               <Label layoutX="20.0" layoutY="103.0" prefHeight="17.0" prefWidth="291.0" text="22% Bracket: ($89,075 - $41,775) x 22% = $10,406.00" />
-               <Label layoutX="20.0" layoutY="119.0" prefHeight="17.0" prefWidth="291.0" text="24% Bracket: ($150,000 - $89,075) x 24% = $14,622.00" />
+               <Label layoutX="20.0" layoutY="86.0" prefHeight="17.0" prefWidth="330.0" text="12% Bracket: ($41,775 - $10,275) x 12% = $3,780.00" />
+               <Label layoutX="20.0" layoutY="103.0" prefHeight="17.0" prefWidth="347.0" text="22% Bracket: ($89,075 - $41,775) x 22% = $10,406.00" />
+               <Label layoutX="20.0" layoutY="119.0" prefHeight="17.0" prefWidth="356.0" text="24% Bracket: ($150,000 - $89,075) x 24% = $14,622.00" />
                <Label layoutX="20.0" layoutY="137.0" prefHeight="17.0" prefWidth="291.0" text="32% Bracket: Not applicable" />
                <Label layoutX="20.0" layoutY="155.0" prefHeight="17.0" prefWidth="291.0" text="35% Bracket: Not applicable" />
                <Label layoutX="20.0" layoutY="171.0" prefHeight="17.0" prefWidth="291.0" text="37% Bracket: Not applicable" />
@@ -63,9 +67,12 @@
            
       <AnchorPane fx:id="apTaxYear" layoutX="72.0" layoutY="317.0" prefHeight="34.0" prefWidth="550.0" visible="true">
          <children>
-            <RadioButton layoutX="126.0" layoutY="7.0" mnemonicParsing="false" text="2023" />
-            <RadioButton layoutX="199.0" layoutY="7.0" mnemonicParsing="false" text="2022" />
-            <RadioButton layoutX="283.0" layoutY="7.0" mnemonicParsing="false" text="2021" />
+            <RadioButton layoutX="126.0" layoutY="7.0" mnemonicParsing="false" text="2023">
+               <toggleGroup>
+                  <ToggleGroup fx:id="buttonClickA" />
+               </toggleGroup></RadioButton>
+            <RadioButton layoutX="199.0" layoutY="7.0" mnemonicParsing="false" text="2022" toggleGroup="$buttonClickA" />
+            <RadioButton layoutX="283.0" layoutY="7.0" mnemonicParsing="false" text="2021" toggleGroup="$buttonClickA" />
             <TextField fx:id="tfYear" layoutX="4.0" layoutY="4.0" prefHeight="25.0" prefWidth="116.0" promptText="salary" text="year" />
          </children>
       </AnchorPane>
